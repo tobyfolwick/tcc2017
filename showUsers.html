@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width-device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<!-- Angular -->
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>
+
+		<!-- Firebase -->
+		<script src="https://www.gstatic.com/firebasejs/3.6.6/firebase.js"></script>
+
+		<!-- AngularFire -->
+		<script src="https://cdn.firebase.com/libs/angularfire/2.3.0/angularfire.min.js"></script>
+		<title>display TCC users</title>
+		<script type="text/javascript" src=""></script>
+		<link rel="stylesheet" type="text/css" href="">
+	</head>
+    <body ng-app="sampleApp">
+		<div class="container">
+			<div class="content" ng-controller="ProfileCtrl">
+			<h1>testing display TCC users</h1>
+			<ul><li ng-repeat='user in profiles'>{{user.firstname}}</li></ul></div>
+		</div>
+
+		
+
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyClbt_yRxPq-ildU68ZHiD4T2EPZjA5-ng",
+    authDomain: "tcchecklist-2017.firebaseapp.com",
+    databaseURL: "https://tcchecklist-2017.firebaseio.com",
+    projectId: "tcchecklist-2017",
+    storageBucket: "tcchecklist-2017.appspot.com",
+    messagingSenderId: "454814123118"
+  };
+  firebase.initializeApp(config);
+</script>
+<script>
+// define our app and dependencies (remember to include firebase!)
+var app = angular.module("sampleApp", ["firebase"]);
+// inject $firebaseObject into our controller
+app.controller("ProfileCtrl", ["$scope", "$firebaseObject",
+  function($scope, $firebaseObject) {
+    var ref = firebase.database().ref();
+    // download physicsmarie's profile data into a local object
+    // all server changes are applied in realtime
+    $scope.profiles = $firebaseObject(ref.child('profiles'));
+  }
+]);
+</script>		
+    </body>
+</html>

@@ -1,0 +1,82 @@
+<img src="i/tccSticker-2017.jpg" width="100%" alt="Twin Cities Checklist 2017" id="hero" />
+<h3><strong>Do FREE stuff in 2017!</strong></h3>
+
+
+      <div class="row marketing">
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+		<h4>Who plays Twin Cities Checklist?</h4>
+          <p>People who find fun wherever they go.  I tend to enjoy myself most when I'm discovering something new about the place where I live.  I've been surprised by what the Twin Cities has to offer for most of my life.  I didn't know anything about the Foshay Tower in downtown Minneapolis so I decided to find out.   I had driven by it many times since I've been able to drive, so I decided to have an adventure, and visit the top of the building.  Who doesn't like having first-hand knowledge to share with someone who doesn't?</p>        
+          <h4>What is Twin Cities Checklist?</h4>
+          <p>It is simply a checklist of places to visit around the Twin Cities that I have found interesting in some way.  <strong>It's free!</strong> These are small adventures into the world around you.  I enjoy it, and you may too!</p>
+          <h4>Where is Twin Cities Checklist?</h4>
+          <p>All over the Twin Cities of Minneapolis, and Saint Paul Minnesota.</p>
+          <h4>When is Twin Cities Checklist?</h4>
+          <p>Now!  I started distributing these ideas in 2014.  When you sign up, you will be offered the current yearly list.  My promise to you is that I will have 10 new places to visit every year.</p>   		  
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">               
+          <h4>Why would I sign up for Twin Cities Checklist?</h4>
+          <p>Even when things are going well I like to have a list of things to do in my pocket.  There are always options where I can spend a little money and go out and have a good time.  I don't always want to do that.  Over the last 10 years or so I've been keeping track of things I'd like to do around the Twin Cities that either don't cost anything, or don't cost a lot.  This is my list of things to do around town if you like.  The incentive to signing-up is not much, but when you complete the list over the summer, I will be happy to send you a custom TCChecklist bumper sticker designed by me for those who play.  You'll also have a back-up plan on those days when you might not have anything important to do.</p>
+          <span><h4>How do I do it?</h4>
+          <p>Fill out the sign-up form below and get right into it. It's easy to do, and you'll be able to visit this site whenever you want on your computer, phone and tablet. You'll see a list of things to do at your leisure and you visit the location, simply hit the checkmark next to the location and move on to the next. It couldn't be simpler!</p></span>
+        </div>
+      </div>
+
+	      <div class="row">
+			<div class="col-md-6">
+<div class="panel panel-default" style="font-family:Roboto Slab">
+	<div class="panel-heading"><h3 class="panel-title">Please log in</h3></div>
+		<div class="panel-body" ng-controller="LoginController">
+  <form name="loginForm" ng-submit="login()" novalidate>
+  <div class="form-group">
+      <input type="email" name="email" placeholder="Email" ng-model="user.email" class="form-control" ng-required="true">
+      <p class="error validationerror alert alert-danger alert alert-danger" ng-show="loginForm.email.$invalid && loginForm.email.$touched">Must be a valid email</p>
+   </div>
+  <div class="form-group">
+      <input type="password" name="password" placeholder="Password" ng-model="user.password" class="form-control" ng-required="true">
+      <p class="error validationerror alert alert-danger alert alert-danger" ng-show="loginForm.password.$invalid && loginForm.email.$touched">Password is required</p>
+   </div>
+     <button type="submit" class="btn btn-lg btn-success btn-block"><span class="glyphicon glyphicon-flash"></span> Log in</button>
+  </form>
+  </div>
+  <div class="panel-footer">Thank you for playing!</div>
+</div>
+</div>
+
+			<div class="col-md-6">
+
+<div class="panel panel-default" style="font-family:Roboto Slab">
+	<div class="panel-heading"><h3 class="panel-title">Please sign-up</h3></div>
+		<div class="panel-body" ng-controller="RegistrationController">
+  <form name="registerForm" ng-submit="register()" novalidate>
+
+  <div class="form-group">
+      <input type="text" name="firstname" placeholder="First Name" ng-model="user.firstname" class="form-control" ng-required="true">
+      <p class="error validationerror alert alert-danger" ng-show="registerForm.firstname.$invalid && registerForm.firstname.$touched">First name required</p>
+  </div>
+
+  <div class="form-group">
+      <input type="text" name="lastname" placeholder="Last Name" ng-model="user.lastname" class="form-control" ng-required="true">
+      <p class="error validationerror alert alert-danger" ng-show="registerForm.lastname.$invalid && registerForm.lastname.$touched">Last name required</p>
+  </div>
+
+  <div class="form-group">
+      <input type="email" name="email" placeholder="Email" ng-model="user.email" class="form-control" ng-required="true">
+      <p class="error validationerror alert alert-danger" ng-show="registerForm.email.$invalid && registerForm.email.$touched">Must be a valid email</p>
+  </div>
+
+  <div class="form-group">
+      <input type="password" name="password" placeholder="Password" ng-model="user.password" class="form-control" ng-required="true">
+      <p class="error validationerror alert alert-danger" ng-show="registerForm.password.$invalid && registerForm.email.$touched">Password is required</p>
+  </div>
+<!-- Button -->
+  <button type="submit" class="btn btn-lg btn-success btn-block"><span class="glyphicon glyphicon-flash"></span> Sign up</button>
+  </form>
+  </div>
+  <div class="panel-footer" ng-show="message">Thank you for playing!</div>
+</div>  
+
+			
+			</div>			
+		</div>
+
+		

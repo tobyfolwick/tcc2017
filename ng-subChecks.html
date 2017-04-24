@@ -1,0 +1,43 @@
+<!doctype html>
+<html ng-app="tccApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width-device-width, initial-scale=1" />
+    <title>TEST subtract Checks Angular</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+	<style>
+	.btn-group-vertical > button{
+		margin-bottom:10px;
+		border-radius:5px !important;
+	}
+	</style>	
+</head>
+ <!-- Body tag augmented with ngController directive  -->
+    <body ng-controller="checkController">
+		<div class="container">
+			<div class="content">
+				<div class="content btn-group-vertical">
+					<button type="button" class="btn btn-primary" ng-click="checkFunction({{l}});this.disabled=true;" ng-repeat="l in locations">Location {{l}}</button>
+				</div>
+			</div>
+			<pre id="locations">{{ locations }}</pre>
+		</div>
+
+ </body>
+<script>
+var app = angular.module("tccApp", []);
+
+app.controller("checkController", function($scope) {
+    $scope.locations = [1,2,3,4,5,6,7,8,9,10];
+	
+	$scope.checkFunction = function (loc) {	
+	var loc = loc;
+    var a = locations.indexOf(loc);
+    document.getElementById("demo").innerHTML = a;
+	locations.splice (a, 1);
+}	
+});
+</script>
+</html>

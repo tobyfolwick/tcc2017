@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en" ng-app="myApp">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width-device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+		<title>tcchecklist users</title>
+
+<script src="https://www.gstatic.com/firebasejs/3.7.0/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyClbt_yRxPq-ildU68ZHiD4T2EPZjA5-ng",
+    authDomain: "tcchecklist-2017.firebaseapp.com",
+    databaseURL: "https://tcchecklist-2017.firebaseio.com",
+    storageBucket: "tcchecklist-2017.appspot.com",
+    messagingSenderId: "454814123118"
+  };
+  firebase.initializeApp(config);
+</script>
+		
+	</head>
+    <body>
+		<div class="container">
+			<div class="content" ng-controller="maincontroller">
+			<h1 ng-repeat="u in users">{{u.firstname}} {{u.lastname}}</h1>
+			</div>
+		</div>
+    </body>
+<script>
+(function()
+  {
+var app = angular.module("myapp", ["firebase"]);
+app.controller("maincontroller", function($scope, $firebaseObject,$firebaseArray)
+{
+  var ref = new Firebase("https://tcchecklist-2017.firebaseio.com");
+
+  var users=ref.child("users");
+
+
+  // download the data into a local object
+  $scope.data = $firebaseObject(ref);
+
+  // putting a console.log here won't work, see below
+    ref.on("value", function(snapshot)
+    {
+      console.log(snapshot.val());
+    }, function (errorObject) 
+    {
+      console.log("The read failed: " + errorObject.code);
+    });
+}); //end of controller
+</script>	
+</html>

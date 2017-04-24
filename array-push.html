@@ -1,0 +1,56 @@
+<!doctype html>
+<html ngapp="">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width-device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<title>angular array push example</title>
+		<script type="text/javascript" src=""></script>
+		<link rel="stylesheet" type="text/css" href="">
+	</head>
+    <body>
+		<div class="container">
+			<div class="content">
+<div ng-controller="Ctrl">
+    <pre>{{data}}</pre><br/><br/>
+    <input type="button" ng-disabled="isDisabled1" ng-click="addItem('1')" value="Add Item" /><br/>
+    <input type="button" ng-disabled="isDisabled2" ng-click="addItem('2')" value="Add Item" /><br/>
+    <input type="button" ng-disabled="isDisabled3" ng-click="addItem('3')" value="Add Item" /><br/>
+    <input type="button" ng-disabled="isDisabled4" ng-click="addItem('4')" value="Add Item" /><br/>
+    <input type="button" ng-disabled="isDisabled5" ng-click="addItem('5')" value="Add Item" /><br/>
+    <input type="button" ng-disabled="isDisabled6" ng-click="addItem('6')" value="Add Item" /><br/>
+    <input type="button" ng-disabled="isDisabled7" ng-click="addItem('7')" value="Add Item" /><br/>
+    <input type="button" ng-disabled="isDisabled8" ng-click="addItem('8')" value="Add Item" /><br/>
+    <input type="button" ng-disabled="isDisabled9" ng-click="addItem('9')" value="Add Item" /><br/>
+    <input type="button" ng-disabled="isDisabled10" ng-click="addItem('10')" value="Add Item" /><br/>
+
+</div>			
+			</div>
+		</div>
+    </body>
+<script>
+function Ctrl($scope) {
+    $scope.data = [];
+
+    $scope.addItem = function (c) {
+        var item = new String('Location' + c)
+        $scope.data.push(item);
+		disableButton(c);
+    };
+    $scope.isDisabled1 = false;
+    $scope.isDisabled2 = false;
+    $scope.isDisabled3 = false;
+    $scope.isDisabled4 = false;
+    $scope.isDisabled5 = false;
+    $scope.isDisabled6 = false;
+    $scope.isDisabled7 = false;
+    $scope.isDisabled8 = false;
+    $scope.isDisabled9 = false;
+    $scope.isDisabled10 = false;
+
+    $scope.disableButton = function(c) {
+        $scope.isDisabled+c = true;
+    }
+}
+</script>	
+</html>

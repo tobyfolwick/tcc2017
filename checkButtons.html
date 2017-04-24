@@ -1,0 +1,109 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width-device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+		<title></title>
+<style>
+.btn {	color: #fff;
+	font-size: 18px;
+	text-shadow: 1px 1px 1px #666;
+	}
+.circle {
+    background: #7ec0ee;
+    width: 50px;
+    height: 50px;
+	border: 1px solid #000 50%;
+    border-radius: 50%;
+	padding-left:10px;
+	color: #fff;
+	font-size: 38px;
+	text-shadow: 1px 1px 1px #666;
+	cursor:pointer;
+	display: block;
+	vertical-align: bottom;
+	margin-top:30px;
+	margin-left: -50px;
+}
+.unchkt {padding-top: 3px;padding-left:16px;font-size: 34px;}
+.unchkt.left{padding-left:10px;}
+.chkt {padding-left:10px; cursor:not-allowed;background: #0f0;}
+pre {
+height:150px;
+ white-space: pre-wrap;       /* css-3 */
+ white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;
+}
+.page-header{line-height: 50px;}
+</style>		
+	</head>
+    <body>
+		<div class="container">
+			<div class="content" ng-app="app" ng-controller="ctrl">
+<h1>Checks are consolidated to ONE Array and remaining locations are being counted.</h1>
+<p>This is the final step before integrating into angular base.</p>			
+			<h2 ng-hide="checklisterMsg">You have visited {{ chkLen }} of {{ locLen }} locations</h2>
+			<h2 ng-show="checklisterMsg" class="bg-success text-danger">{{ checklisterMsg }}</h2>
+<div class="row">
+  <div class="col-md-5"><h1 class="page-header">Grain Belt Beer Sign <button type="button" class="btn btn-primary" title="click here to check off this location" id="check1" ng-click = 'checkLoc(1)'>Location 1</button></div>			
+</div>
+<div class="row">
+  <div class="col-md-8" style="line-height: 50px;"><h1 class="page-header">Minnesota Peace Officers Memorial <button type="button" class="btn btn-primary" title="click here to check off this location" id="check2" ng-click = 'checkLoc(2)'>Location 2</button></div>
+</div>
+<div class="row">
+  <div class="col-md-5" style="line-height: 50px;"><h1 class="page-header">Foucault pendulum <button type="button" class="btn btn-primary" title="click here to check off this location" id="check3" ng-click = 'checkLoc(3)'>Location 3</button></div>			
+</div>
+<div class="row">
+  <div class="col-md-8" style="line-height: 50px;"><h1 class="page-header">Twin City Model Railroad Museum   <button type="button" class="btn btn-primary" title="click here to check off this location" id="check4" ng-click = 'checkLoc(4)'>Location 4</button></div>
+</div>
+<div class="row">
+  <div class="col-md-8" style="line-height: 50px;"><h1 class="page-header">Jackson Street Roundhouse   <button type="button" class="btn btn-primary" title="click here to check off this location" id="check5" ng-click = 'checkLoc(5)'>Location 5</button></div>
+</div>
+<div class="row">
+  <div class="col-md-5" style="line-height: 50px;"><h1 class="page-header">Large Green Chair  <button type="button" class="btn btn-primary" title="click here to check off this location"  id="check6" ng-click = 'checkLoc(6)'>Location 6</button></div>
+</div>
+<div class="row">
+  <div class="col-md-8" style="line-height: 50px;"><h1 class="page-header">Prospect Park Witch's Hat Water Tower   <button type="button" class="btn btn-primary" title="click here to check off this location" id="check7" ng-click = 'checkLoc(7)'>Location 7</button></div>
+</div>
+<div class="row">
+  <div class="col-md-5" style="line-height: 50px;"><h1 class="page-header">U of M Shoe Tree   <button type="button" class="btn btn-primary" title="click here to check off this location" id="check8" ng-click = 'checkLoc(8)'>Location 8</button></div>
+</div>
+<div class="row">
+  <div class="col-md-8" style="line-height: 50px;"><h1 class="page-header">Wabasha Street Caves   <button type="button" class="btn btn-primary" title="click here to check off this location" id="check9" ng-click = 'checkLoc(9)'>Location 9</button></div>
+</div>
+<div class="row">
+  <div class="col-md-8" style="line-height: 50px;"><h1 class="page-header">Bob Dylan Mural   <button type="button" class="btn btn-primary" title="click here to check off this location" id="check10" ng-click = 'checkLoc(10)'>Location 10</button></div>
+</div>
+<pre>
+{{ checks }}
+</pre>
+</div>
+<script>
+angular.module('app', [])
+.controller('ctrl', function($scope) {
+	$scope.checklisterMsg = "";
+	//$scope.locations = [1,2,3,4,5,6,7,8,9,10];
+	$scope.checks = [{"id":1,"checked":false},{"id":2,"checked":false},{"id":3,"checked":false},{"id":4,"checked":false},{"id":5,"checked":false},{"id":6,"checked":false},{"id":7,"checked":false},{"id":8,"checked":false},{"id":9,"checked":false},{"id":10,"checked":false}];
+	$scope.locLen = $scope.checks.length;
+	$scope.chkLen = 0;
+    $scope.checkLoc = function(n) {
+	alert(n);
+        var markup = document.getElementById('check'+n).innerHTML
+		$scope.checks[n-1]["checked"] = true;
+        document.getElementById('check'+n).innerHTML = "&#x2714;";
+		document.getElementById('check'+n).classList.remove("unchkt");
+		document.getElementById('check'+n).classList.add("chkt");
+		document.getElementById('check'+n).setAttribute('title', 'You have visited this location');
+		$scope.chkLen = $scope.checks.filter(function(x){ return x.checked; }).length;
+		if($scope.chkLen === 10){
+			$scope.checklisterMsg = "Congratulations, you have completed TCChecklist 2017!";
+		}
+    }
+})
+</script>
+    </body>
+</html>

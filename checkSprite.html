@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#navlist {
+    position: relative;
+}
+
+#navlist li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    position: absolute;
+    top: 0;
+}
+
+#navlist li, #navlist a {
+    height: 75px;
+    display: block;
+}
+
+#unchkt {
+    left: 0px;
+    width: 75px;
+    background: url('i/checkSprite.png') 0 0;
+}
+#unchkt::after{content:"unchecked";} 
+#chkt {
+    left: 75px;
+    width: 75px;
+    background: url('i/checkSprite.png') -75px 0;
+}
+#chkt::after{content:"checked";} 
+</style>
+</head>
+<body>
+
+<ul id="navlist">
+  <li id="chkt"><a href="default.asp"></a></li><br>
+  <li id="unchkt"><a href="css_intro.asp"></a></li>
+</ul>
+
+</body>
+</html>

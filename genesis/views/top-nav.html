@@ -1,0 +1,11 @@
+      <div class="header">
+        <h3 class="text-muted"><a ng-href="#/"><img src="../i/logo.png" width="300" height="80" alt="TC Checklist"/></a></h3>
+		  <div class="userinfo" ng-show="currentUser" ng-controller="RegistrationController">
+		  <span class="userinfo header pull-right pull-top">Welcome {{currentUser.firstname}}
+		  
+			<a ng-href="#/" ng-click="logout()">logout</a> |
+			<a ng-href="#/success" ng-show="currentUser">back to Genesis</a>
+			</span>
+			<!--<span style="color: #eee;">{{currentUser.regUser}}</span>-->
+		  </div>		
+      </div>

@@ -1,0 +1,97 @@
+<style>
+.circle {
+    background: #7ec0ee;
+    width: 50px;
+    height: 50px;
+	border: 1px solid #000 50%;
+    border-radius: 50%;
+	padding-left:10px;
+	color: #fff;
+	font-size: 38px;
+	text-shadow: 1px 1px 1px #666;
+	cursor:pointer;
+	display: block;
+}
+.unchkt {padding-top:9px;padding-left:19px;font-size: 24px;}
+.unchkt.left{padding-left:10px;}
+.chkt {padding-left:10px; cursor:not-allowed;background: #0f0;}
+</style>
+		<!-- Portfolio Item Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Grain Belt Beer Sign
+                    <small>Location</small><span id="Loc1" class="circle unchkt" ng-class="{true: 'unchkt left', false: 'unchkt'}[1 == 10]" title="click here to check off this location"  ng-repeat="n in checks"  ng-click = 'checkLoc(0)'>1</span>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+<style>
+.glyphicon{font-size: 40px; color: green; float:right;}
+.glyphicon::after{clear:both;}
+</style>
+        <!-- Portfolio Item Row -->
+        <div class="row">
+
+            <div class="col-md-8">
+                <img class="img-responsive" src="i/locations/location1.jpg" alt="Grain Belt Beer Sign">
+				<div class="well well-sm text-right">Latitude: 44.999181, Longitude: -93.271564</div>
+            </div>
+
+            <div class="col-md-4">
+                <h3>Location Description</h3>
+                <p>Built in 1941 for $5,000, the Grain Belt Beer bottle cap sign is one of the largest freestanding neon signs in the region.</p>
+				<p>The “M” inside a circle above “Grain Belt Beer” is the logo for the original brewing company, Minneapolis Brewing.</p>
+                <h3>Location Details</h3>
+                <ul>
+                    <li>The sign is approximately 50 feet wide and 40 feet tall.</li>
+                    <li>The sign’s bottle cap design with a red diamond background dates back to 1938</li>
+                    <li>Mentioned in The Hold Steady song "Party Pit"</li>
+                    <li>Acquired by August Schell Brewing Company on January 31, 2016</li>
+					<li>on <a href="https://twitter.com/GrainBeltSign" target="_blank">Twitter</a></li>
+					<li>and <a href="https://foursquare.com/v/grain-belt-sign/4bcb499ccc8cd13ab80bbfcf" target="_blank">Foursquare</a></li>
+                </ul>
+				<a href="https://www.google.com/maps/dir/''/4+W+Island+Ave,+Minneapolis,+MN+55401/data=!4m5!4m4!1m0!1m2!1m1!1s0x52b332822061ab01:0xcaaab6581e540552?sa=X&ved=0ahUKEwi9_OCPl8XSAhUq0oMKHWgUBj0QwwUIGzAA" target="_blank"><span class="glyphicon glyphicon-map-marker"></span></a>				
+				<address>
+				Grain Belt Beer Sign<br />
+				4 W Island Ave<br />
+				Minneapolis, MN 55401 
+				</address>
+
+            </div>
+
+        </div>
+        <!-- /.row -->
+
+        <!-- Related Projects Row 
+        <div class="row">
+
+            <div class="col-lg-12">
+                <h3 class="page-header">Related Locations</h3>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+            <div class="col-sm-3 col-xs-6">
+                <a href="#">
+                    <img class="img-responsive portfolio-item" src="http://placehold.it/500x300" alt="">
+                </a>
+            </div>
+
+        </div>
+         /.row -->

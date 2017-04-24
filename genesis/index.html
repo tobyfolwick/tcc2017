@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en" ng-app="myApp" class="ng-cloak">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <title>Twin Cities Checklist 2017</title>
+  <meta name="viewport" content="width=device-width, user-scalable=no">
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,100,700,900' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Roboto+Slab:300' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Berkshire+Swash' rel='stylesheet' type='text/css'>
+
+  <style>a{cursor:pointer;}.page-header h1{text-align:center;}</style>
+  <script src="js/lib/angular/angular.min.js"></script>
+  <script src="js/lib/angular/angular-route.min.js"></script>
+  <script src="js/lib/angular/angular-animate.min.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+<style>
+.pull-top{margin-top: -60px;} 
+.new{color: #f00;} 
+.bold(font-weight: bold;}
+</style>  
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyClbt_yRxPq-ildU68ZHiD4T2EPZjA5-ng",
+    authDomain: "tcchecklist-2017.firebaseapp.com",
+    databaseURL: "https://tcchecklist-2017.firebaseio.com",
+    storageBucket: "tcchecklist-2017.appspot.com",
+    messagingSenderId: "454814123118"
+  };
+  firebase.initializeApp(config);
+</script> 
+  <script src="https://cdn.firebase.com/libs/angularfire/2.1.0/angularfire.min.js"></script>
+
+  <script src="js/app.js"></script>
+  <script src="js/services/authentication.js"></script>
+  <script src="js/controllers/login.js"></script> 
+  <script src="js/controllers/registration.js"></script>
+  <script src="js/controllers/success.js"></script>
+
+</head>
+<body>
+<div class="container">
+<div ng-include="'views/top-nav.html'"></div>
+<main class="cf" ng-view>
+</main>
+
+      <footer class="footer">
+        <p>&copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Twin Cities Checklist.</p>
+      </footer>
+</div>
+</body>
+</html>

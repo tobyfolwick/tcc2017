@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width-device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>		
+		<title>managing check view in angularJS</title>
+<style>
+.circle {
+    background: #7ec0ee;
+    width: 50px;
+    height: 50px;
+	border: 1px solid #000 50%;
+    border-radius: 50%;
+	padding-left:10px;
+	color: #fff;
+	font-size: 38px;
+	text-shadow: 1px 1px 1px #666;
+	cursor:pointer;
+}
+.unchkt {padding-top:9px;padding-left:19px;font-size: 24px;}
+.unchkt.left{padding-left:10px;}
+.chkt {padding-left:10px; cursor:not-allowed;background: #0f0;}
+</style>		
+	</head>
+    <body>
+		<div class="container">
+			<div class="content" ng-app="app" ng-controller="ctrl">
+<h1>Checks are working stopping here at step 3.</h1>
+<p>Visit <a href="checks-local.html">checks-local</a> for web Storage solution STEP 4.</p>			
+<div id="check{{n}}" class="circle unchkt" ng-class="{true: 'unchkt left', false: 'unchkt'}[n == 10]" title="click here to check off this location"  ng-repeat="n in locations"  ng-click = 'checkLoc(n)'>{{ n }}</div><br>
+
+<pre>
+{{ checks }}
+</pre>			
+<pre>
+1. [COMPLETE] checkbox created in CSS
+2. [COMPLETE] check view functionality created in AngularJS
+3. [COMPLETE] change title attribute to reflect checked item on hover.
+4. Add checks to local storage and see if they stay checked on browser close and re-open
+5. Hit Firebase with new true/false values for specific user
+6. remaining: integrate this with TCC App and firebase
+</pre>		
+			
+			</div>
+		</div>
+<script>
+angular.module('app', [])
+.controller('ctrl', function($scope) {
+	$scope.locations = [1,2,3,4,5,6,7,8,9,10];
+	$scope.checks = [{"Loc1":false,"Loc2":false,"Loc3":false,"Loc4":false,"Loc5":false,"Loc6":false,"Loc7":false,"Loc8":false,"Loc9":false,"Loc10":false}];
+    $scope.checkLoc = function(n) {
+	//alert(n);
+        var markup = document.getElementById('check'+n).innerHTML
+		$scope.checks[0]["Loc"+n] = true;
+        document.getElementById('check'+n).innerHTML = "&#x2714;";
+		document.getElementById('check'+n).classList.remove("unchkt");
+		document.getElementById('check'+n).classList.add("chkt");
+		document.getElementById('check'+n).setAttribute('title', 'You have visited this location');
+		
+    }
+})
+</script>		
+    </body>
+</html>

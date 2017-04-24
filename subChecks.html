@@ -1,0 +1,85 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width-device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+		<script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
+		<title>subtract Checks</title>
+<style>
+.btn-group-vertical > button{
+    margin-bottom:10px;
+    border-radius:5px !important;
+}
+</style>
+	</head>
+    <body onload="myFunction();">
+		<div class="container">
+<pre>
+STEPS:
+1. get 10 buttons to show on page with ng-repeat
+2. get each button to splice it's respective number out of the array
+3. disable button after click			
+</pre>
+<div class="content btn-group-vertical">
+		<button type="button" class="btn btn-primary" onclick="check(this.value-1);this.disabled=true;" value="1">Location 1</button>
+		<button type="button" class="btn btn-primary" onclick="check(this.value-1);this.disabled=true;" value="2">Location 2</button>
+		<button type="button" class="btn btn-primary" onclick="check(this.value-1);this.disabled=true;" value="3">Location 3</button>
+		<button type="button" class="btn btn-primary" onclick="check(this.value-1);this.disabled=true;" value="4">Location 4</button>
+		<button type="button" class="btn btn-primary" onclick="check(this.value-1);this.disabled=true;" value="5">Location 5</button>
+		<button type="button" class="btn btn-primary" onclick="check(this.value-1);this.disabled=true;" value="6">Location 6</button>
+		<button type="button" class="btn btn-primary" onclick="check(this.value-1);this.disabled=true;" value="7">Location 7</button>
+		<button type="button" class="btn btn-primary" onclick="check(this.value-1);this.disabled=true;" value="8">Location 8</button>
+		<button type="button" class="btn btn-primary" onclick="check(this.value-1);this.disabled=true;" value="9">Location 9</button>
+		<button type="button" class="btn btn-primary" onclick="check(this.value-1);this.disabled=true;" value="10">Location 10</button>
+</div>
+<p id="demo"></p>
+
+<script>
+        var locations = [1,2,3,4,5,6,7,8,9,10];
+function myFunction() {
+    locations.toString();
+    document.getElementById("demo").innerHTML = locations;
+}
+function check(loc){
+switch(locations.length) {
+    case 10:
+        locations.splice (loc, 1);
+        break;
+    case 9:
+        locations.splice (loc-1, 1);
+        break;
+    case 8:
+        locations.splice (loc-2, 1);
+        break;
+    case 7:
+        locations.splice (loc-3, 1);
+        break;
+    case 6:
+        locations.splice (loc-4, 1);
+        break;
+    case 5:
+        locations.splice (loc-5, 1);
+        break;
+    case 4:
+        locations.splice (loc-6, 1);
+        break;
+    case 3:
+        locations.splice (loc-7, 1);
+        break;
+    case 2:
+        locations.splice (loc-8, 1);
+        break;
+    case 1:
+        locations.splice (loc-9, 1);
+        break;
+		
+}
+
+myFunction();
+}
+</script>
+
+</body>
+</html>

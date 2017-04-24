@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width-device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<title>TEST subtract Checks</title>
+<style>
+.btn-group-vertical > button{
+    margin-bottom:10px;
+    border-radius:5px !important;
+}
+</style>
+	</head>		
+<body>
+		<div class="container"><div class="content">
+<pre>
+STEPS:
+1. get 10 buttons to show on page with ng-repeat
+2. convert javascript code to angularJS
+3. update firebase on-the-fly			
+</pre>
+<div class="content btn-group-vertical">
+<p>Click a location to display the index of that location in the array:</p>
+
+<button type="button" class="btn btn-primary" onclick="checkFunction(1);this.disabled=true;">Location 1</button>
+<button type="button" class="btn btn-primary" onclick="checkFunction(2);this.disabled=true;">Location 2</button>
+<button type="button" class="btn btn-primary" onclick="checkFunction(3);this.disabled=true;">Location 3</button>
+<button type="button" class="btn btn-primary" onclick="checkFunction(4);this.disabled=true;">Location 4</button>
+<button type="button" class="btn btn-primary" onclick="checkFunction(5);this.disabled=true;">Location 5</button>
+<button type="button" class="btn btn-primary" onclick="checkFunction(6);this.disabled=true;">Location 6</button>
+<button type="button" class="btn btn-primary" onclick="checkFunction(7);this.disabled=true;">Location 7</button>
+<button type="button" class="btn btn-primary" onclick="checkFunction(8);this.disabled=true;">Location 8</button>
+<button type="button" class="btn btn-primary" onclick="checkFunction(9);this.disabled=true;">Location 9</button>
+<button type="button" class="btn btn-primary" onclick="checkFunction(10);this.disabled=true;">Location 10</button>
+</div>
+<p id="demo"></p>
+
+<p id="locations"></p>
+
+<script>
+    var locations = [1,2,3,4,5,6,7,8,9,10];
+    var locs = document.getElementById("locations").innerHTML = locations.toString();    
+function checkFunction(loc) {
+	var loc = loc;
+    var a = locations.indexOf(loc);
+    document.getElementById("demo").innerHTML = a;
+	locations.splice (a, 1);
+	document.getElementById("locations").innerHTML = locations.toString();
+}
+</script>
+
+<p><b>Note:</b> The indexOf method was introduced in JavaScript 1.6, and does not work in Internet Explorer 8 and earlier versions.</p>
+</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width-device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>		
+		<title>managing check view in angularJS</title>
+<style>
+.circle {
+    background: #7ec0ee;
+    width: 50px;
+    height: 50px;
+	border: 1px solid #000 50%;
+    border-radius: 50%;
+	padding-left:10px;
+	color: #fff;
+	font-size: 38px;
+	text-shadow: 1px 1px 1px #666;
+	cursor:pointer;
+}
+.unchkt {padding-top:9px;padding-left:19px;font-size: 24px;}
+.unchkt.left{padding-left:10px;}
+.chkt {padding-left:10px; cursor:not-allowed;background: #0f0;}
+</style>		
+	</head>
+    <body>
+		<div class="container">
+			<div class="content" ng-app="app" ng-controller="ctrl">
+<h1>Checks are consolidated to ONE Array stopping here at step 1.</h1>
+<p>Visit <a href="checks-fire.html">checks-fire</a> for firebase solution STEP 2.</p>
+<div id="check{{n.id}}" class="circle unchkt" ng-class="{true: 'unchkt left', false: 'unchkt'}[n.id == 10]" title="click here to check off this location"  ng-repeat="n in checks"  ng-click = 'checkLoc(n.id)'>{{ n.id }}</div><br>
+<pre>
+{{ checks }}
+</pre>			
+<pre>
+1. <b>[COMPLETE]</b>Consolidate scope locations and scope checks so I don't need to use both (loop on key, then eliminate check+n portion in function)
+2. Hit Firebase with new true/false values for specific user
+3. remaining: integrate this with TCC App and firebase
+</pre>		
+			
+			</div>
+		</div>
+<script>
+angular.module('app', [])
+.controller('ctrl', function($scope) {
+
+	//$scope.locations = [1,2,3,4,5,6,7,8,9,10];
+	$scope.checks = [{"id":1,"checked":false},{"id":2,"checked":false},{"id":3,"checked":false},{"id":4,"checked":false},{"id":5,"checked":true},{"id":6,"checked":false},{"id":7,"checked":false},{"id":8,"checked":false},{"id":9,"checked":false},{"id":10,"checked":false}]
+    $scope.checkLoc = function(n) {
+	//alert(n);
+        var markup = document.getElementById('check'+n).innerHTML
+		$scope.checks[n-1]["checked"] = true;
+        document.getElementById('check'+n).innerHTML = "&#x2714;";
+		document.getElementById('check'+n).classList.remove("unchkt");
+		document.getElementById('check'+n).classList.add("chkt");
+		document.getElementById('check'+n).setAttribute('title', 'You have visited this location');
+		
+    }
+})
+</script>		
+    </body>
+</html>

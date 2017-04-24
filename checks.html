@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width-device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>
+		<title></title>
+<style>
+input{
+    padding:5px;
+}
+.btn,.btn:active,.btn:hover,.btn:visited {
+  display:block;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background: #ff69b4;
+  color: #fff;
+}
+.glyphicon {font-size: 40px;}
+.glyphicon.center:before {
+    vertical-align: middle;
+}
+</style>
+	</head>
+    <body ng-app>
+		<div class="container">
+			<div class="content">
+<div  ng-app="myApp" ng-controller="Ctrl">
+    <pre>{{data}}</pre><br/><br/>
+  <button class="btn btn-default" ng-click="addLoc()">
+    <i class="glyphicon glyphicon-unchecked" style="vertical-align:middle"></i> 
+  </button>
+    <br/>
+    <i>Should add the item to the first index or 0 index.</i>
+</div>	
+			
+			</div>
+		</div>
+<a class="btn-floating btn-large btn-pink"><i class="fa fa-check" aria-hidden="true"></i></a>		
+		
+    </body>
+ <script>
+var app = angular.module("myApp", []);
+function Ctrl($scope) {
+    $scope.data = [];
+		$scope.dataMax = 10;
+    $scope.addLoc = function () {
+		if($scope.data.length < $scope.dataMax){
+        var c = $scope.data.length + 1;
+        var item = new String('Loc' + c)
+        $scope.data.push(item);
+        }   
+    };
+}
+ </script>	
+</html>

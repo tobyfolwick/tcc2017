@@ -1,0 +1,37 @@
+<style>
+.row.border {
+    margin: 10px 0;
+    padding: 10px 0;
+    border-bottom: 1px solid #eee;
+    border-radius: 6px;
+}
+img {border-radius: 6px;}
+</style>
+
+<div class="card meetings cf">
+
+  <div class="textintro">
+    <h1>Let's Play!</h1>
+  </div>
+</div>
+
+<div class="content" ng-controller="SuccessController">
+	<div class="row border" data-ng-repeat="p in places">
+        <div class="row">
+        <!-- Location {{$index}} -->
+		<div class="col-md-7">
+                <a href="{{p.url}}">
+					<img class="img-responsive" src="{{p.cardimage}}" alt="{{p.name}}">
+                </a>
+            </div>
+            <div class="col-md-5">
+                <h3>{{p.name}}</h3>
+                <h4>Location {{$index+1}}</h4>
+                <p>{{p.shortdesc}}</p>
+                <a class="btn btn-primary" href="{{p.url}}">View Details <span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+        </div>
+        <!-- /.row -->
+		
+		</div>
+	</div>

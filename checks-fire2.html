@@ -1,0 +1,99 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width-device-width, initial-scale=1" />
+		<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>		
+		<title>managing check view in angularJS</title>
+<style>
+.circle {
+    background: #7ec0ee;
+    width: 50px;
+    height: 50px;
+	border: 1px solid #000 50%;
+    border-radius: 50%;
+	padding-left:10px;
+	color: #fff;
+	font-size: 38px;
+	text-shadow: 1px 1px 1px #666;
+	cursor:pointer;
+	display: block;
+	float:left;
+}
+.unchkt {padding-top:9px;padding-left:19px;font-size: 24px;}
+.unchkt.left{padding-left:10px;}
+.chkt {padding-left:10px; cursor:not-allowed;background: #0f0;}
+pre {
+height:150px;
+ white-space: pre-wrap;       /* css-3 */
+ white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+ white-space: -pre-wrap;      /* Opera 4-6 */
+ white-space: -o-pre-wrap;    /* Opera 7 */
+ word-wrap: break-word;
+}
+.page-header{clear:both;}
+small{float:left;}
+</style>		
+	</head>
+    <body>
+		<div class="container">
+			<div class="content" ng-app="app" ng-controller="ctrl">
+			<h1>checks-fire2.html</h1>
+<pre>
+This is the step where I realized I didn't need to do all the work on the user side, that it can be done via firebase.  I will have to rethink how this 
+works in this step.
+
+Need to change the format of scope.checks to match valid json in first2.json
+
+1. Hit Firebase with new true/false values for specific user
+2. remaining: integrate this with TCC App and firebase
+</pre>			
+			<h2 ng-hide="checklisterMsg">You have visited {{ chkLen }} of {{ locLen }} locations</h2>
+			<h2 ng-show="checklisterMsg" class="bg-success text-danger">{{ checklisterMsg }}</h2>
+			<h1 class="page-header">Grain Belt Beer Sign
+                    <small>Location</small><!-- ngRepeat: n in checks -->
+                <span id="Loc{{$index+1}}" class="circle unchkt" ng-class="{true: 'unchkt left', false: 'unchkt'}[$index+1 == 10]" title="click here to check off this location"  ng-repeat="n in checks"  ng-click = 'checkLoc($index)'>{{ $index+1 }}</span></h1>
+
+<pre>
+{{ checks }}
+</pre>			
+		
+			
+			</div>
+		</div>
+<script>
+angular.module('app', [])
+.controller('ctrl', function($scope) {
+	$scope.checklisterMsg = "";
+	$scope.testTrue=0;
+	
+	//$scope.locations = [1,2,3,4,5,6,7,8,9,10];
+$scope.checks = [{"Loc1": false},{"Loc2": false},{"Loc3": false},{"Loc4": false},{"Loc5": false},{"Loc6": false},{"Loc7": false},{"Loc8": false},{"Loc9": false},{"Loc10": false}];
+	$scope.locLen = $scope.checks.length;
+	$scope.chkLen = 0;
+	$scope.checkLoc = function(n) {
+	$scope.chkLen = ('Loc'+(index+1) === 'true') ? $scope.testTrue++ :$scope.testFalse++;
+	if($scope.testTrue ===10){alert("complete!");} else {alert("incomplete!");}
+	}
+    $scope.checkLoc = function(n) {
+	//alert("Loc"+(n+1));
+	//alert("before: "+$scope.checks[n]["Loc"+(n+1)]);
+        var markup = document.getElementById('Loc'+(n+1)).innerHTML
+		$scope.checks[n]["Loc"+(n+1)] = true;
+		//alert("after: "+$scope.checks[n]["Loc"+(n+1)]);
+        document.getElementById("Loc"+(n+1)).innerHTML = "&#x2714;";
+		document.getElementById("Loc"+(n+1)).classList.remove("unchkt");
+		document.getElementById("Loc"+(n+1)).classList.add("chkt");
+		document.getElementById("Loc"+(n+1)).setAttribute('title', 'You have visited this location');
+		$scope.testTrue++;
+		$scope.chkLen = $scope.testTrue;
+		if($scope.chkLen === 10){
+			$scope.checklisterMsg = "Congratulations, you have completed TCChecklist 2017!";
+		}
+    }
+
+})
+</script>		
+    </body>
+</html>
