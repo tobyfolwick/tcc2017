@@ -17,4 +17,4 @@ This application should work right out of the box. There are remaining items tha
 1.  Need to implement "Forget something?" link in login footer to pop a modal to reset password.
 2.  Need to research Firebase simple login password reset code
 3.  Don't forget to remove **pre** tag inside views/top-nav.html
-4.  Fix automatic error when logging in.
+
